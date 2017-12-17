@@ -1,0 +1,114 @@
+lxg storage design
+
+open_id_to_lxg_id 
+open_id => {
+	lxg_id => 10000
+}
+
+executor_status
+executor_id => {
+	total_score =>,
+	today_reward_scroe =>,
+	today_punish_scroe =>,
+}
+
+executor_info
+executor_id => {
+	name => 
+	birthdate => "2017-05-04"
+	gender => 0/1/2, // 0: unset, 1: boy, 2: girl
+}
+
+executor_rule
+executor_id => {
+	doing => {
+		rule_id0,
+		rule_id1,
+	},
+	done => {
+		rule_id2,
+		rule_id3,
+	}
+}
+
+rule_info
+rule_id => {
+	name =>,
+	desc =>,
+	execute_start_daytime =>,
+	execute_end_daytime =>,
+	reward_score =>,
+	punish_score =>,
+	auto_operation => 0/1, 
+	repeat_weekday => [0-6],
+	default_operation_type => 0/1, // 0: reward, 1: punish
+}
+
+rule_status
+rule_id => {
+	succ => {
+		execute_timestamp0,
+		execute_timestamp1,
+	},
+	fail => {
+		execute_timestamp2,
+		execute_timestamp3,
+	}
+}
+
+record_info
+record_id => {
+	rule_id => ,
+	rule_name =>,
+	operation_type =>  0/1, // 0: reward, 1: punish
+	scroe => ,
+	remark =>,
+	record_time =>
+}
+
+own_executor_id
+user_id => {
+	create => {
+		executor_id0,
+		executor_id1,
+	},
+	supervise => {
+		executor_id2,
+	},
+	watch => {
+		executor_id3
+	}
+}
+
+user_info
+user_id => {
+	name => ,
+	province => ,
+	city => ,
+	gender => ,
+}
+
+executor_record
+executor_id => {
+	record_id0 => timestamp0,
+	record_id1 => timestamp1,
+}
+
+executor_superviser
+executor_id => {
+	user_id0,
+	user_id1,
+}
+
+prize_info
+prize_id => {
+	name =>, 
+	cost_score =>,
+	daily_exchange_limit =>, 
+}
+
+executor_prize
+executor_id => {
+	prize_id,
+	prize_id,
+} 
